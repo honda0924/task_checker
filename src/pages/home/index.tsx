@@ -26,8 +26,12 @@ export const Home = ()=> {
           fontSize="default" 
           onClick={handleOpen}
         />
+        <FormModal 
+          handleClose={handleClose}
+          isOpen={isOpen} 
+          body="genreBody"
+        />
       </div>
-        <FormModal handleClose={handleClose} isOpen={isOpen} />
       <div className="contents">
         <ToDoList />
       </div>

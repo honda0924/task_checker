@@ -1,9 +1,12 @@
 import React from "react";
 import Modal from "react-modal";
+import { GenreBody } from "./genreBody";
+import { TaskBody } from "./taskBody";
 
 interface Props {
   handleClose: ()=> void;
   isOpen: boolean;
+  body: string;
 }
 
 const customStyles = {
@@ -20,6 +23,17 @@ const customStyles = {
     padding: "2vw 10vw",
   }
 };
+const renderBody = (body: string) => {
+  switch (body) {
+    case "taskBody":
+      return <TaskBody />;
+    case "genreBody":
+      return <GenreBody/>
+  
+    default:
+      return <div />;
+  }
+}
 
 export const FormModal = (props: Props) => {
 
@@ -32,6 +46,7 @@ export const FormModal = (props: Props) => {
         onRequestClose={props.handleClose} 
         style={customStyles}
       >
+      {renderBody(props.body)}
       </Modal>
     </div>
   );
