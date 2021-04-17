@@ -25,7 +25,7 @@ export const Task = (props:Props) => {
   const changeStatus = async (event:React.ChangeEvent<HTMLSelectElement>) => {
     const val = Number(event.target.value);
     try {
-      const tasks: taskType[] = await taskRequest("updateTasks", {
+      const tasks: taskType[] = await taskRequest("updateStatus", {
         data: props.task,
         status: val,
       });
@@ -34,7 +34,7 @@ export const Task = (props:Props) => {
     } catch (err) {
       console.log(err.message);
     }
-  }
+  };
   return (
     <div 
       className="task" 

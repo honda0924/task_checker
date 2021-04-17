@@ -36,7 +36,7 @@ export const ToDoList = (props: Props) => {
   return (
     <div className="task_list">
       <div className="section">
-        <MenuIcon className="section_ele" />
+        <MenuIcon className="section_ele" onClick={handleOnClick} />
         <span className="section_ele">{props.title}</span>
         {props.title === 'ToDo' && (
           <AddCircleOutlineIcon className="add_circle_outline_icon" fontSize="small" onClick={handleOpen} />
@@ -49,9 +49,12 @@ export const ToDoList = (props: Props) => {
         />
       </div>
       <div className="task_field">
-        {props.tasks.map((task: taskType) => {
-          return <Task task={task} key={task.id} getMatchTask={getMatchTask} />
-        })}
+        {isListOpen &&
+          props.tasks.map((task: taskType) => {
+            return <Task task={task} key={task.id} getMatchTask={getMatchTask} />
+          })
+        }
+
       </div>
     </div>
   );

@@ -33,7 +33,7 @@ const renderOption = (props: Props) => {
 
 export const Select = (props: Props) => {
   return (
-    <select className="select" onChange={props.changeSelect}>
+    <select className="select" onChange={props.changeSelect} value={props.initialValue}>
       {props.genres && <option value={0}></option>}
       {renderOption(props)}
     </select>
